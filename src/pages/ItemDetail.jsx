@@ -44,7 +44,7 @@ function ItemDetail() {
                     </div>
                 </div>
                 <div className="card-footer">
-                    <Link to={`/category`} className="card-footer-item">Back to Catalog</Link>
+                    <Link to={`/`} className="card-footer-item">Back to Catalog</Link>
                 </div>
             </div>
         </div>

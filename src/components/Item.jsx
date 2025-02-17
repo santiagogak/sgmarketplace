@@ -26,7 +26,7 @@ function Item({ product }) {
                 </div>
             </div>
             <div className="card-footer">
-                <Link to={`/category/${id}`} className="card-footer-item">Read Description</Link>
+                <Link to={`/item/${id}`} className="card-footer-item">Read Description</Link>
             </div>
         </div>
     )
