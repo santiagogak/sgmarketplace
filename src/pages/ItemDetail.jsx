@@ -1,7 +1,7 @@
-
+import { db } from '../config/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProductById } from '../asyncMock';
 import { Link } from 'react-router-dom';
 
 function ItemDetail() {
@@ -10,11 +10,13 @@ function ItemDetail() {
 
     const [item, setItem] = useState([]);
 
+    
     useEffect(() => {
-        getProductById(productid)
-            .then((data) => {
-                setItem(data);
-            });
+        const productDocRef = doc(db, 'products', productid);
+        getDoc(productDocRef).then((doc) => {
+            const productData = {...doc.data()};
+            setItem(productData);
+        });
     }, []);
 
     return (

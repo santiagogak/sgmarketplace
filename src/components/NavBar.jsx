@@ -17,7 +17,7 @@ function NavBar() {
                     <Link className="navbar-item" to="/"> Home </Link>
                     <Link className="navbar-item" to="category/menclothing"> Men's Clothing </Link>
                     <Link className="navbar-item" to="category/womenclothing"> Women's Clothing </Link>
-                    <Link className="navbar-item" to="category/jewelery"> Women's Clothing </Link>
+                    <Link className="navbar-item" to="category/jewelery"> Jewelery </Link>
                     <Link className="navbar-item" to="category/electronics"> Electronics </Link>
                 </div>
 

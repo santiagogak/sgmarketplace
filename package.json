@@ -12,6 +12,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "bulma": "^1.0.3",
+    "firebase": "^11.4.0",
     "reac": "^0.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
