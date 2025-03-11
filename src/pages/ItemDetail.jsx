@@ -47,7 +47,7 @@ function ItemDetail() {
                         </div>
                     </div>
                     <div className="card-footer columns is-flex is-vcentered">
-                        <ItemCount className="column" stock={item.stock} />
+                        <ItemCount className="column" item={item} id={productid} />
                         <Link to={`/`} className="card-footer-item">Back to Catalog</Link>
                     </div>
                 </div>

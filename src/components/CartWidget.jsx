@@ -1,5 +1,9 @@
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
+
 function CartWidget() {
-    const items = 5;
+
+    const { cart } = useContext(CartContext);
 
     return (
         <div className="navbar-item">
@@ -8,7 +12,7 @@ function CartWidget() {
                     <span className="icon is-large">
                         <i className="fas fa-cart-shopping"></i>
                     </span>
-                    <span className="is-large">{items}</span>
+                    <span className="is-large">{cart.length}</span>
                 </span>
 
             </button>

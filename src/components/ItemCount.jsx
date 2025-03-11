@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import CartContext from '../context/CartContext';
 
-function ItemCount({stock}) {
+function ItemCount({ item, id }) {
 
-    const [itemCount, setItemCount] = useState(0);
+    const [ itemCount, setItemCount ] = useState(0);
+    const { addToCart } = useContext(CartContext);
 
     const addItem = () => {
-        if (itemCount < stock) {
+        if (itemCount < item.stock) {
             setItemCount(itemCount + 1);
         }
     }
@@ -16,12 +18,16 @@ function ItemCount({stock}) {
         }
     }
 
+    const handleCart = () => {
+        addToCart({...item, quantity: itemCount, id: id});
+    }
+
     return (
         <>
             <button onClick={subItem} className="card-footer-item">-</button>
             <p className="card-footer-item">{itemCount}</p>
             <button onClick={addItem} className="card-footer-item">+</button>
-            <button className="card-footer-item">Add to Cart</button>
+            <button onClick={handleCart} className="card-footer-item">Add to Cart</button>
         </>
     )
 }
