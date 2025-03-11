@@ -7,7 +7,7 @@ function CartWidget() {
 
     return (
         <div className="navbar-item">
-            <button className="button is-success is-dark">
+            <button className="button is-primary is-dark">
                 <span className="icon-text">
                     <span className="icon is-large">
                         <i className="fas fa-cart-shopping"></i>

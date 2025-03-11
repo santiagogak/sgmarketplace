@@ -23,7 +23,7 @@ function ItemDetail() {
     return (
         <div className="container is-max-tablet">
 
-            <div className="box m-auto is-small">
+            <div className="box is-small">
                 <div className="card">
                     <div className="card-image">
                         <figure className="image is-4by3">
@@ -43,12 +43,12 @@ function ItemDetail() {
                         <div className="content">
                             {item.description}
                             <br />
-                            <p className="title is-4 has-text-right">${item.price}</p>
+                            <p className="title is-4 has-text-centered">${item.price}</p>
                         </div>
                     </div>
-                    <div className="card-footer columns is-flex is-vcentered">
-                        <ItemCount className="column" item={item} id={productid} />
-                        <Link to={`/`} className="card-footer-item">Back to Catalog</Link>
+                    <ItemCount item={item} id={productid} />
+                    <div className="columns is-centered">
+                        <Link to={`/`} className="button column is-half is-link mb-5">Back to Catalog</Link>
                     </div>
                 </div>
             </div>

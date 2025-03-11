@@ -1,10 +1,19 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import CartContext from '../context/CartContext';
 
 function ItemCount({ item, id }) {
 
-    const [ itemCount, setItemCount ] = useState(0);
-    const { addToCart } = useContext(CartContext);
+    const [itemCount, setItemCount] = useState(0);
+    const { cart, addToCart } = useContext(CartContext);
+    const initItemCount = 0;
+
+    useEffect(() => {
+        const cartItem = cart.find((cartItem) => cartItem.id === id);
+        if (cartItem) {
+            initItemCount = cartItem.quantity;
+            setItemCount(cartItem.quantity);
+        }
+    }, []);
 
     const addItem = () => {
         if (itemCount < item.stock) {
@@ -19,16 +28,23 @@ function ItemCount({ item, id }) {
     }
 
     const handleCart = () => {
-        addToCart({...item, quantity: itemCount, id: id});
+        const cartItemCount = cart.find((cartItem) => cartItem.id === id)?.quantity || 0;
+        if (itemCount != cartItemCount) {
+            addToCart({ ...item, quantity: itemCount, id: id });
+        }
     }
 
     return (
-        <>
-            <button onClick={subItem} className="card-footer-item">-</button>
-            <p className="card-footer-item">{itemCount}</p>
-            <button onClick={addItem} className="card-footer-item">+</button>
-            <button onClick={handleCart} className="card-footer-item">Add to Cart</button>
-        </>
+        <div className="has-text-centered">
+            <div className="card-footer columns is-centered mb-5">
+                <button onClick={subItem} className="column is-one-fifth card-footer-item">-</button>
+                <p className="column is-one-fifth card-footer-item">{itemCount}</p>
+                <button onClick={addItem} className="column is-one-fifth card-footer-item">+</button>
+            </div>
+            <div className="columns is-centered mb-5">
+                <button onClick={handleCart} className="button column is-half is-primary">Add to Cart</button>
+            </div>
+        </div>
     )
 }
 

@@ -12,13 +12,21 @@ function CartContextProvider ({children}) {
         if (index === -1) {
             newCart.push(item);
         } else {
-            newCart[index].quantity += item.quantity;
+            if (item.quantity === 0) {
+                newCart.splice(index, 1);
+            } else {
+                newCart[index].quantity = item.quantity;
+            }
         }
         setCart(newCart);
     }
 
+    const clearCart = () => {
+        setCart([]);
+    }
+
     return (
-        <CartContext.Provider value={{cart, addToCart}}>
+        <CartContext.Provider value={{cart, addToCart, clearCart}}>
             {children}
         </CartContext.Provider>
     )

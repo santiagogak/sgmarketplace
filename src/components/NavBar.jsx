@@ -4,10 +4,10 @@ import MarketPlaceIcon from "../assets/img/marketplace.webp";
 
 function NavBar() {
     return (
-        <nav className="navbar is-success is-transparent">
+        <nav className="navbar is-primary is-transparent">
             <div className="navbar-brand">
                 <Link to="/" className="navbar-item" href="#">
-                    <img src={MarketPlaceIcon}/>
+                    <img src={MarketPlaceIcon} />
                     MARKETPLACE
                 </Link>
             </div>
@@ -22,7 +22,9 @@ function NavBar() {
                 </div>
 
                 <div className="navbar-end">
-                    <CartWidget />
+                    <Link to="cart">
+                        <CartWidget />
+                    </Link>
                 </div>
             </div>
         </nav>

@@ -23,7 +23,7 @@ function ItemListContainer({ greeting }) {
   return (
     <div className="container">
       <div className="box m-auto">
-        <h1 className="title has-text-centered">Welcome to the SG MarketPlace</h1>
+        <h1 className="title has-text-centered">SG MarketPlace</h1>
         <ItemList products={products} />
       </div>
     </div>

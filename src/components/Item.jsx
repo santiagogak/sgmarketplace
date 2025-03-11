@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Item({ product }) {
 
     const { id, title, image, price } = product;
-    
+
     return (
         <div className="card">
             <div className="card-image">
@@ -21,12 +21,12 @@ function Item({ product }) {
                     </div>
                 </div>
 
-                <div className="content">
-                    <p className="title is-6 is-centered">${price}</p>
+                <div className="content has-text-centered">
+                    <p className="title is-4">${price}</p>
                 </div>
-            </div>
-            <div className="card-footer">
-                <Link to={`/item/${id}`} className="card-footer-item">Read Description</Link>
+                <div className="columns is-centered">
+                    <Link to={`/item/${id}`} className="button column is-primary">Description</Link>
+                </div>
             </div>
         </div>
     )
